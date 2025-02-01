@@ -61,6 +61,19 @@ button:hover {
     box-shadow: 0 0 15px rgba(255, 0, 255, 0.9);
 }
 
+/* ✨ Effetto di pressione quando si clicca */
+.complete-btn:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease-in-out;
+}
+
+/* ✨ Cambiamento di colore più graduale */
+.completed .complete-btn {
+    background: #6c757d !important;
+    color: #fff;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
 /* Stile per le sfide completate */
 .completed {
     background: rgba(0, 255, 0, 0.2) !important;
@@ -76,4 +89,24 @@ button:hover {
     margin-top: 15px;
     color: #ff00ff;
     text-shadow: 0 0 10px rgba(255, 0, 255, 0.8);
+}
+
+/* ✨ Transizione fluida per il cambiamento di stato */
+.completed {
+    background: rgba(0, 255, 0, 0.2) !important;
+    text-decoration: line-through;
+    color: #00ff00;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+    transition: all 0.3s ease-in-out;
+    /* Effetto di transizione */
+}
+
+/* ✨ Effetto Glow Statico */
+.completed {
+    background: rgba(0, 255, 0, 0.2) !important;
+    text-decoration: line-through;
+    color: #00ff00;
+    box-shadow: 0 0 12px rgba(0, 255, 0, 0.7);
+    /* Neon più soft */
+    transition: background 0.5s ease-in-out, box-shadow 0.5s ease-in-out, color 0.5s ease-in-out;
 }
