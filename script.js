@@ -1,7 +1,21 @@
 // Selezioniamo tutti i pulsanti "Completa"
 const buttons = document.querySelectorAll(".complete-btn");
 
+// Recuperiamo il contatore di progresso
+const progressCounter = document.getElementById("progress-counter");
+const totalChallenges = document.getElementById("total-challenges");
+
+// Impostiamo il numero totale di sfide
+totalChallenges.textContent = document.querySelectorAll(".complete-btn").length;
+
+
 let completedChallenges = JSON.parse(localStorage.getItem("completedChallenges")) || [];
+
+// Funzione per aggiornare il contatore delle sfide completate
+function updateProgressCounter() {
+    progressCounter.textContent = completedChallenges.length;
+}
+
 
 // Funzione per aggiornare LocalStorage
 function updateLocalStorage() {
@@ -18,6 +32,8 @@ function loadChallengesState() {
             button.style.backgroundColor = "#6c757d"; // Grigio
         }
     });
+
+    updateProgressCounter(); // aggiorniamo il contatore quando carichiamo i dati
 }
 
 // Aggiungiamo un evento click a ogni pulsante
@@ -40,6 +56,7 @@ buttons.forEach((button, index) => {
         }
 
         updateLocalStorage();
+        updateProgressCounter(); // aggiorniamo il contatore dopo ogni azione
     });
 });
 
