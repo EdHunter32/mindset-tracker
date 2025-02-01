@@ -2,6 +2,7 @@
 const buttons = document.querySelectorAll(".complete-btn");
 const progressCounter = document.getElementById("progress-counter");
 const totalChallenges = document.getElementById("total-challenges");
+const scoreCounter = document.getElementById("score"); // Selezioniamo il contatore extra
 
 // 🗂 Memorizziamo lo stato delle sfide completate
 let completedChallenges = JSON.parse(localStorage.getItem("completedChallenges")) || [];
@@ -15,9 +16,12 @@ function updateLocalStorage() {
 }
 
 // 🔄 Funzione per aggiornare il contatore di progressi
+
 function updateProgressCounter() {
     progressCounter.textContent = completedChallenges.length;
+    scoreCounter.textContent = completedChallenges.length; // ✨ AGGIUNTO: aggiorna il secondo contatore
 }
+
 
 // 🎯 Funzione per caricare lo stato delle sfide salvate
 function loadChallengesState() {
