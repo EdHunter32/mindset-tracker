@@ -1,0 +1,79 @@
+/* 🌌 Sfondo futuristico */
+body {
+    font-family: 'Orbitron', sans-serif;
+    /* Font futuristico */
+    background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
+    color: #fff;
+    text-align: center;
+    margin: 20px;
+}
+
+/* Contenitore principale con effetto neon */
+.container {
+    max-width: 500px;
+    margin: auto;
+    background: rgba(20, 20, 20, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+    border: 2px solid rgba(255, 0, 255, 0.6);
+}
+
+/* Titolo con effetto neon */
+h1 {
+    color: #ff00ff;
+    text-shadow: 0 0 8px rgba(255, 0, 255, 0.8), 0 0 20px rgba(255, 0, 255, 0.6);
+}
+
+/* Lista sfide */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background: rgba(50, 50, 50, 0.8);
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    border: 1px solid rgba(255, 0, 255, 0.4);
+}
+
+/* Pulsante "Completa" con effetto neon */
+button {
+    background: #ff00ff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.6);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #ff44ff;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.9);
+}
+
+/* Stile per le sfide completate */
+.completed {
+    background: rgba(0, 255, 0, 0.2) !important;
+    text-decoration: line-through;
+    color: #00ff00;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+}
+
+/* Messaggio di stato futuristico */
+.status-message {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 15px;
+    color: #ff00ff;
+    text-shadow: 0 0 10px rgba(255, 0, 255, 0.8);
+}
