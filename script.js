@@ -1,64 +1,57 @@
-// Selezioniamo tutti i pulsanti "Completa"
+// 🎯 Selezioniamo gli elementi chiave
 const buttons = document.querySelectorAll(".complete-btn");
-
-// Recuperiamo il contatore di progresso
 const progressCounter = document.getElementById("progress-counter");
 const totalChallenges = document.getElementById("total-challenges");
 
-// Impostiamo il numero totale di sfide
-totalChallenges.textContent = document.querySelectorAll(".complete-btn").length;
-
-
+// 🗂 Memorizziamo lo stato delle sfide completate
 let completedChallenges = JSON.parse(localStorage.getItem("completedChallenges")) || [];
 
-// Funzione per aggiornare il contatore delle sfide completate
-function updateProgressCounter() {
-    progressCounter.textContent = completedChallenges.length;
-}
+// 🏆 Impostiamo il numero totale di sfide
+totalChallenges.textContent = buttons.length;
 
-
-// Funzione per aggiornare LocalStorage
+// 📌 Funzione per aggiornare il LocalStorage
 function updateLocalStorage() {
     localStorage.setItem("completedChallenges", JSON.stringify(completedChallenges));
 }
 
-// Funzione per aggiornare la UI in base a LocalStorage
+// 🔄 Funzione per aggiornare il contatore di progressi
+function updateProgressCounter() {
+    progressCounter.textContent = completedChallenges.length;
+}
+
+// 🎯 Funzione per caricare lo stato delle sfide salvate
 function loadChallengesState() {
     buttons.forEach((button, index) => {
         let challengeItem = button.parentElement;
         if (completedChallenges.includes(index)) {
             challengeItem.classList.add("completed");
             button.textContent = "✔ Completato";
-            button.style.backgroundColor = "#6c757d"; // Grigio
+            button.style.backgroundColor = "#6c757d";
         }
     });
-
-    updateProgressCounter(); // aggiorniamo il contatore quando carichiamo i dati
+    updateProgressCounter();
 }
 
-// Aggiungiamo un evento click a ogni pulsante
+// Aggiungiamo eventi di click ai pulsanti
 buttons.forEach((button, index) => {
     button.addEventListener("click", function () {
         let challengeItem = this.parentElement;
-
-        // Aggiungiamo/rimuoviamo la classe "completed"
         challengeItem.classList.toggle("completed");
 
-        // Aggiorniamo LocalStorage
         if (challengeItem.classList.contains("completed")) {
-            completedChallenges.push(index); // Salviamo l'indice della sfida completata
+            completedChallenges.push(index);
             this.textContent = "✔ Completato";
             this.style.backgroundColor = "#6c757d";
         } else {
-            completedChallenges = completedChallenges.filter(i => i !== index); // Rimuoviamo dal salvataggio
+            completedChallenges = completedChallenges.filter(i => i !== index);
             this.textContent = "✅ Completa";
             this.style.backgroundColor = "#ff00ff";
         }
 
         updateLocalStorage();
-        updateProgressCounter(); // aggiorniamo il contatore dopo ogni azione
+        updateProgressCounter();
     });
 });
 
-// Carichiamo lo stato delle sfide salvate
+// Carichiamo lo stato iniziale al caricamento della pagina
 loadChallengesState();
